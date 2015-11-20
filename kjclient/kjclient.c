@@ -179,6 +179,8 @@ int AJ_Main(void)
         }
 
         status = AJ_UnmarshalMsg(&bus, &msg, UNMARSHAL_TIMEOUT);
+        //printf("First Unmarshal_MSG\n");
+
 
         if (AJ_ERR_TIMEOUT == status) {
             continue;
@@ -191,10 +193,42 @@ int AJ_Main(void)
             case AJ_REPLY_ID(GET_COMPASS_AZIMUTH):
                 {
                     status = AJ_UnmarshalArgs(&msg,"d", &azimuth);
+                    //printf("First Unmarshal_Args\n");
 
                     if (AJ_OK == status) {
                         //printf("azimuth: %f\n", azimuth);
+                        AJ_CloseMsg(&msg);
                         MakeMethodCall1(&bus, sessionId);
+                        status = AJ_UnmarshalMsg(&bus, &msg, UNMARSHAL_TIMEOUT);
+                        //printf("Second Unmarshal_MSG\n");
+
+                        if (AJ_OK == status) {
+                            //Проверить, правда ли пришел метод 1, или мусор?
+                            if (msg.msgId == AJ_REPLY_ID(GET_COMPASS_PITCH)) {
+                                //Забираем показание
+                                status = AJ_UnmarshalArgs(&msg,"d", &pitch);
+                                //printf("Second Unmarshal_Args\n");
+                                AJ_CloseMsg(&msg);
+
+                                //Вызываем следующий метод
+                                MakeMethodCall2(&bus, sessionId);
+                                //Повторяем обработку
+                                status = AJ_UnmarshalMsg(&bus, &msg, UNMARSHAL_TIMEOUT);
+                                //printf("Third Unmarshal_MSG\n");
+                                if (AJ_OK == status) {
+                                    //Пришел ответ на второй метод?
+                                    if (msg.msgId == AJ_REPLY_ID(GET_COMPASS_ROLL)) {
+                                        //Забираем и это показание
+                                        status = AJ_UnmarshalArgs(&msg,"d", &roll);
+                                        //printf("Third Unmarshal_Args\n");
+                                        //Повторяем эту скрутку
+                                        AJ_CloseMsg(&msg);
+                                        MakeMethodCall(&bus, sessionId);
+                                    }
+                                }
+
+                            }
+                        }
                         //done = TRUE;
                     } else {
                         AJ_InfoPrintf(("AJ_UnmarshalArg() returned status %d.\n", status));
@@ -203,37 +237,7 @@ int AJ_Main(void)
                     }
                 }
                 break;
-            case AJ_REPLY_ID(GET_COMPASS_PITCH):
-                {
-                    status = AJ_UnmarshalArgs(&msg,"d", &pitch);
-
-                    if (AJ_OK == status) {
-                        //printf("pitch: %f\n", pitch);
-                        MakeMethodCall2(&bus, sessionId);
-                        //done = TRUE;
-                    } else {
-                        AJ_InfoPrintf(("AJ_UnmarshalArg() returned status %d.\n", status));
-                        /* Try again because of the failure. */
-                        MakeMethodCall1(&bus, sessionId);
-                    }
-                }
-                break;
-            case AJ_REPLY_ID(GET_COMPASS_ROLL):
-                {
-                    status = AJ_UnmarshalArgs(&msg,"d", &roll);
-
-                    if (AJ_OK == status) {
-                        //printf("roll: %f\n", roll);
-                        MakeMethodCall(&bus, sessionId);
-                        //done = TRUE;
-                    } else {
-                        AJ_InfoPrintf(("AJ_UnmarshalArg() returned status %d.\n", status));
-                        /* Try again because of the failure. */
-                        MakeMethodCall2(&bus, sessionId);
-                    }
-                }
-                break;
-
+    
             case AJ_SIGNAL_SESSION_LOST_WITH_REASON:
                 /* A session was lost so return error to force a disconnect. */
                 {
