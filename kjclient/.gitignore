@@ -1,0 +1,5 @@
+ajtcl.nvram
+*.o
+*~
+kjclient
+
