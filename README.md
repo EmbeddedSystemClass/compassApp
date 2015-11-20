@@ -23,7 +23,7 @@ $> cd ~/compassApp/alljoyn
 $> scons BINDINGS=cpp WS=off BT=off ICE=off SERVICES="about,notification,controlpanel,config,onboarding,sample_apps"
 ```
 
-### run alljoin service
+### run alljoin daemon
 
 ```
 $> export LD_LIBRARY_PATH=~/compassApp//alljoyn/build/linux/x86_64/debug/dist/cpp/lib
@@ -37,7 +37,7 @@ Setting up transport for address: tcp:iface=*,port=9955
 Setting up transport for address: udp:iface=*,port=9955
 Setting up transport for address: unix:abstract=alljoyn
 ```
-
+## run Android-application
 ### in another terminal run Compass client
 
 ```
