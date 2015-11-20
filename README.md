@@ -28,7 +28,7 @@ $> scons BINDINGS=cpp WS=off BT=off ICE=off SERVICES="about,notification,control
 ```
 $> export LD_LIBRARY_PATH=~/compassApp//alljoyn/build/linux/x86_64/debug/dist/cpp/lib
 
-$> ~/compassApp/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
+$> ~/compassApp/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
 AllJoyn Message Bus Daemon version: v0.00.01
 Copyright AllSeen Alliance.
 
@@ -42,6 +42,6 @@ Setting up transport for address: unix:abstract=alljoyn
 
 ```
 $> cd
-$> ~/kjoin/kjclient/kjclient
+$> ~/compassApp/kjclient/kjclient
 
 ```
