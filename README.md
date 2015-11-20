@@ -10,7 +10,7 @@ Android -> Linux
 ### build thin core library and samples
 
 ```
-$> cd ~/compassApp/kjoin/ajtcl
+$> cd ~/compassApp/ajtcl
 
 $> scons WS=off
 ```
@@ -18,7 +18,7 @@ $> scons WS=off
 ### build alljoin standard core library and samples
 
 ```
-$> cd ~/compassApp/kjoin/alljoyn
+$> cd ~/compassApp/alljoyn
 
 $> scons BINDINGS=cpp WS=off BT=off ICE=off SERVICES="about,notification,controlpanel,config,onboarding,sample_apps"
 ```
@@ -26,7 +26,7 @@ $> scons BINDINGS=cpp WS=off BT=off ICE=off SERVICES="about,notification,control
 ### run alljoin service
 
 ```
-$> export LD_LIBRARY_PATH=~/compassApp/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/lib
+$> export LD_LIBRARY_PATH=~/compassApp//alljoyn/build/linux/x86_64/debug/dist/cpp/lib
 
 $> ~/compassApp/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
 AllJoyn Message Bus Daemon version: v0.00.01

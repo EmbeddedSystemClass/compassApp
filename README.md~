@@ -26,9 +26,9 @@ $> scons BINDINGS=cpp WS=off BT=off ICE=off SERVICES="about,notification,control
 ### run alljoin service
 
 ```
-$> export LD_LIBRARY_PATH=~/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/lib
+$> export LD_LIBRARY_PATH=~/compassApp/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/lib
 
-$> ~/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
+$> ~/compassApp/kjoin/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
 AllJoyn Message Bus Daemon version: v0.00.01
 Copyright AllSeen Alliance.
 
@@ -38,48 +38,10 @@ Setting up transport for address: udp:iface=*,port=9955
 Setting up transport for address: unix:abstract=alljoyn
 ```
 
-### in another terminal run thin core basic sevice
+### in another terminal run Compass client
 
 ```
 $> cd
-$> ~/kjoin/ajtcl/samples/basic/basic_service 
-000.000 aj_target_nvram.c:86 _AJ_LoadNVFromFile(): LoadNVFromFile() failed. status=AJ_ERR_FAILURE
-Reminder: Object not yet added to the ObjectList, do not forget to call RegisterObjects
-<node name="/sample">
-<interface name="org.alljoyn.Bus.sample">
-  <method name="Dummy">
-    <arg name="foo" type="i" direction="in"/>
-  </method>
-  <method name="cat">
-    <arg name="inStr1" type="s" direction="in"/>
-    <arg name="inStr2" type="s" direction="in"/>
-    <arg name="outStr" type="s" direction="out"/>
-  </method>
-</interface>
-</node>
+$> ~/kjoin/kjclient/kjclient
 
-```
-
-### in third terminal run thin core basic client
-
-```
-$ ~/kjoin/ajtcl/samples/basic/basic_client
-Reminder: Object not yet added to the ObjectList, do not forget to call RegisterObjects
-<node name="/sample">
-<interface name="org.alljoyn.Bus.sample">
-  <method name="Dummy">
-    <arg name="foo" type="i" direction="in"/>
-  </method>
-  <method name="Dummy2">
-    <arg name="fee" type="i" direction="in"/>
-  </method>
-  <method name="cat">
-    <arg name="inStr1" type="s" direction="in"/>
-    <arg name="inStr2" type="s" direction="in"/>
-    <arg name="outStr" type="s" direction="out"/>
-  </method>
-</interface>
-</node>
-'org.alljoyn.Bus.sample.cat' (path='/sample') returned 'Hello World!'.
-Basic client exiting with status 0.
 ```
