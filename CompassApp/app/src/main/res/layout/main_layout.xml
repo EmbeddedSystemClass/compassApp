@@ -132,4 +132,17 @@
         android:layout_marginTop="61dp"
         android:onClick="onClick" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GSM and Wifi"
+        android:id="@+id/btn_gsmWifi"
+        android:layout_below="@+id/btn_debug"
+        android:layout_alignRight="@+id/btn_debug"
+        android:layout_alignEnd="@+id/btn_debug"
+        android:layout_alignLeft="@+id/btn_debug"
+        android:layout_alignStart="@+id/btn_debug"
+        android:nestedScrollingEnabled="false"
+        android:onClick="goToNewActivity" />
+
 </RelativeLayout>

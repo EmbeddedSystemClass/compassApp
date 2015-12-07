@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Сеть GSM:"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Wi-Fi"
+        android:id="@+id/cbEnable"
+        android:checked="false"
+        android:layout_marginBottom="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Cтатус Wi-Fi:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Имя Wi-Fi сети:"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="27dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wi-Fi сигнал:"
+        android:id="@+id/textView4"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp"
+        android:text="Скорость Wi-Fi:" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/gsmLevel"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignLeft="@+id/cbEnable"
+        android:layout_alignStart="@+id/cbEnable"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/wifiStatus"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignLeft="@+id/gsmLevel"
+        android:layout_alignStart="@+id/gsmLevel"
+        android:layout_alignRight="@+id/gsmLevel"
+        android:layout_alignEnd="@+id/gsmLevel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/wifiSSID"
+        android:layout_alignLeft="@+id/wifiStatus"
+        android:layout_alignStart="@+id/wifiStatus"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignRight="@+id/wifiStatus"
+        android:layout_alignEnd="@+id/wifiStatus" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/wifiLevel"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignLeft="@+id/wifiSSID"
+        android:layout_alignStart="@+id/wifiSSID"
+        android:layout_alignRight="@+id/wifiSSID"
+        android:layout_alignEnd="@+id/wifiSSID" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/wifiSpeed"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignLeft="@+id/wifiLevel"
+        android:layout_alignStart="@+id/wifiLevel"
+        android:layout_alignRight="@+id/wifiLevel"
+        android:layout_alignEnd="@+id/wifiLevel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Назад"
+        android:id="@+id/btn_back"
+        android:layout_alignBottom="@+id/cbEnable"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:onClick="goBack" /><![CDATA[
+
+
+
+
+
+
+
+    Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Wi-Fi scanning"
+        android:id="@+id/wifiBtn"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/wifiSpeed"
+        android:layout_toEndOf="@+id/wifiSpeed"
+        android:onClick="onClickWiFi" />
+
+
+
+
+]]>
+</RelativeLayout>
