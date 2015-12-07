@@ -64,9 +64,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sensors List:"
         android:id="@+id/textView3"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="137dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,9 +75,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sensors"
         android:id="@+id/sensorsList"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignRight="@+id/btn_gsmWifi"
+        android:layout_alignEnd="@+id/btn_gsmWifi"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,23 +129,20 @@
         android:layout_height="wrap_content"
         android:text="Изменить данные"
         android:id="@+id/btn_debug"
-        android:layout_below="@+id/sensorsList"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_marginTop="61dp"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_above="@+id/btn_gsmWifi"
+        android:layout_alignLeft="@+id/btn_gsmWifi"
+        android:layout_alignStart="@+id/btn_gsmWifi" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GSM and Wifi"
         android:id="@+id/btn_gsmWifi"
-        android:layout_below="@+id/btn_debug"
-        android:layout_alignRight="@+id/btn_debug"
-        android:layout_alignEnd="@+id/btn_debug"
-        android:layout_alignLeft="@+id/btn_debug"
-        android:layout_alignStart="@+id/btn_debug"
         android:nestedScrollingEnabled="false"
-        android:onClick="goToNewActivity" />
+        android:onClick="goToNewActivity"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
 
 </RelativeLayout>
